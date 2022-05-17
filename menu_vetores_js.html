@@ -1,0 +1,90 @@
+<meta charset="UTF-8">
+
+<script>
+
+var V = [10], operacao
+
+
+for(i = 0 ; i<11; i++){
+
+    operacao = Number(prompt("Informe pela numeração a ação que deseja executar. \n 1 - Incluir um número no vetor \n 2 - Consultar todos os números do vetor \n 3 - Consultar um número do vetor \n 4 - Excluir um número do vetor \n 5 - Esvaziar o vetor \n 6 - Sair. "))
+
+
+    if(operacao == 1){
+
+        if(i<10){
+            V[i] = Number(prompt("Informe o número para a "+(i+1)+"a. posição do vetor."))
+        }
+
+        if(i>=10){
+            alert("O vetor está cheio!")
+            i--
+        }
+    }
+
+
+    if(operacao == 2){
+        i--
+        alert("Vetor: "+V)
+    }
+
+
+    if(operacao == 3){
+        i--
+
+        var posicao = Number(prompt("Informe a posição do vetor que deseja verificar."))
+
+        for(p = 1 ; p<11 ; p++ ){
+            if(p = posicao && posicao<=10){
+                alert("O número da "+posicao+"a. posição é: "+V[posicao-1])
+            }
+            break
+        }
+
+        if(posicao>10){
+            alert("Essa posição não existe no vetor.")
+        }
+
+    }
+
+
+
+    if(operacao == 4){
+        i--
+
+        alert("Caso o número seja repitido, repita a operação de exclusão para a quantidade de repetições do número.")
+
+        var numero = Number(prompt("Informe o número que você deseja excluir"))
+        
+        if(numero != V[0] && numero != V[1] && numero != V[2] && numero != V[3] && numero != V[4] && numero != V[5] && numero != V[6] && numero != V[7] && numero != V[8] && numero != V[9] ){ // GAMBIARRA - CODIGO DE 2021 //
+            alert("Este número não existe no vetor")
+        }
+
+        if(numero == V[0] || numero == V[1] || numero == V[2] || numero == V[3] || numero == V[4] || numero == V[5] || numero == V[6] || numero == V[7] || numero == V[8] || numero == V[9]){
+            i--
+            var indice = V.indexOf(numero)
+            V.splice(indice,1)
+            alert("O número "+numero+" foi excluído do vetor")
+        }
+       
+    }
+
+    
+
+    if(operacao == 5){
+       V.splice(0,10)
+       i-=i // i = i-i // i = 0
+       i--
+    }
+
+
+    if(operacao == 6){
+        alert("O programa será encerrado. Reinicie a página para usá-lo novamente.")
+        i = 11
+    }
+
+
+}
+
+
+</script>
